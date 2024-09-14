@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="--background: #f80000b0;">
+  <img src="assets/img/logo.png" alt="" class="center-image">
+  <div>
+    <h1> 
+      <ion-item>
+        <ion-input [(ngModel)]="email" label="Email" type="email" placeholder="" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input [(ngModel)]="password" label="Password" type="password" value=""></ion-input>
+      </ion-item>
+
+      <ion-button (click)="login()">Login</ion-button>
+    </h1>
+  </div>
+
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="registrar">
+          <div>
+            <a [routerLink]="['/crear-usuario']" routerLinkActive="router-Link-Active">registrar</a>
+          </div>
+        </ion-col>
+        <ion-col class="recuperar">
+          <div>
+            <a [routerLink]="['/recuperarpass']" routerLinkActive="router-Link-Active">recuperar</a>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+

@@ -1,0 +1,67 @@
+
+<div>
+  <ion-menu contentId="main-content">
+   <ion-header>
+ <ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref = "/"></ion-back-button>
+    </ion-buttons>
+   <ion-title>Menu Content</ion-title>
+   </ion-toolbar>
+  </ion-header>
+   <ion-content class="ion-padding">Opciones
+    <ion-button perfil>perfil</ion-button>
+    <ion-button (click)="logout()">logout</ion-button>
+   </ion-content>
+  </ion-menu>
+</div>
+  <div class="ion-page" id="main-content">
+  <ion-header>
+  <ion-toolbar>
+  <ion-buttons slot="start">
+  <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+  <ion-title>Bienvenido a donde Te llevo?</ion-title>
+  </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding"> 
+  <img src="assets/img/logo.png" alt="" class="center-image"> 
+  
+  <ion-searchbar placeholder="Donde quieres ir?"></ion-searchbar> 
+  <br>
+  <div><img src="assets/img/maps.jpg" alt="" class="maps"> </div>
+  </ion-content>
+  <div>
+    <ion-footer>
+      <br>
+      <h1>QUIENES SOMOS?</h1>
+      <H2>Somos una empresa dedicada al traslado de estudiantes
+        del duoc, inscribimos a los mismo conductores del instituto
+        duoc dandole trabajos a los estudiantes
+      </H2>
+    </ion-footer>
+    
+    <br>
+  </div>
+  <div>
+  <ion-tabs>
+  <ion-tab-bar slot="bottom">
+  <ion-tab-button tab="home">
+  <ion-icon name="home"></ion-icon>
+  Home
+  </ion-tab-button>
+  <ion-tab-button tab="radio">
+  <ion-icon name="card"></ion-icon>
+  Pagos
+  </ion-tab-button>
+  <ion-tab-button tab="library">
+  <ion-icon name="car"></ion-icon>
+  Viajes
+  </ion-tab-button>
+  <ion-tab-button tab="search">
+  <ion-icon name="search"></ion-icon>
+   Buscar
+  </ion-tab-button>
+   </ion-tab-bar>
+  </ion-tabs>
+</div>

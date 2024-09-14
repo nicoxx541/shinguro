@@ -1,0 +1,7 @@
+{
+  "name": "shinguro",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
