@@ -1,33 +1,46 @@
-<ion-buttons slot="start">
-  <ion-back-button defaultHref = "/"></ion-back-button>
-  </ion-buttons>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Crear Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content class="ion-padding" style="--background: #f80000b0;">
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/"></ion-back-button>
+  </ion-buttons>
   <img src="assets/img/logo.png" alt="" class="center-image">
+
   <div>
-    <h1> 
-      <ion-item>
-        <ion-input [(ngModel)]="email" label="Email" type="email" placeholder="" ></ion-input>
-      </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input id="nombre" [(ngModel)]="nombre" name="nombre"></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-input [(ngModel)]="password" label="Password" type="password" value=""></ion-input>
-      </ion-item>
+    <ion-item>
+      <ion-label position="floating">Correo_electronico</ion-label>
+      <ion-input id="correo_electronico" [(ngModel)]="correo_electronico" name="correo_electronico" type="correo_electronico"></ion-input>
+    </ion-item>
 
-      <ion-button (click)="registrar()">registrar</ion-button>
-    </h1>
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input id="password" [(ngModel)]="password" name="password" type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Teléfono</ion-label>
+      <ion-input id="telefono" [(ngModel)]="telefono" name="telefono" type="tel"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <input id="archivoImagen" type="file" (change)="onFileChange($event)">
+    </ion-item>
+
+    <ion-button expand="full" (click)="registrar()">Registrar</ion-button>
   </div>
-
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
-    <ion-title>Footer</ion-title>
+    <ion-title>Nicolas Hernandez</ion-title>
   </ion-toolbar>
 </ion-footer>
-
-<ion-header>
-  <ion-toolbar>
-    <ion-title></ion-title>
-  </ion-toolbar>
-</ion-header>
-

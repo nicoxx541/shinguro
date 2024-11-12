@@ -10,8 +10,12 @@
    </ion-toolbar>
   </ion-header>
    <ion-content class="ion-padding">Opciones
+    <ion-img *ngIf="usuario.length > 0" [src]="usuario[0].imagen_usuario"></ion-img>
     <ion-button perfil>perfil</ion-button>
     <ion-button (click)="logout()">logout</ion-button>
+    <ion-button (click)="btnRegistrarVehiculo()">registrar Vehiculo</ion-button>
+    <ion-button (click)="btnObtenerVehiculos()">Obtener Vehiculos</ion-button>
+    <a [routerLink]="['/photo']" routerLinkActive="router-link-active">Tomar photo</a>
    </ion-content>
   </ion-menu>
 </div>

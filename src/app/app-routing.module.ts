@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import {AngularFireAuthGuard, redirectUnauthorizedTo} from "@angular/fire/compat/auth-guard";
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { PhotoComponent } from './component/photo/photo.component';
 
-const redireccionarLogin = () => redirectUnauthorizedTo('/Login');
+const redireccionarLogin = () => redirectUnauthorizedTo(['/Login']);
 const routes: Routes = [
   {
     path: 'home',
@@ -34,6 +36,31 @@ const routes: Routes = [
     path: 'perfil',
     loadChildren: () => import('./page/perfil/perfil.module').then( m => m.PerfilPageModule)
   },
+  {
+    path: 'apitest',
+    loadChildren: () => import('./page/apitest/apitest.module').then( m => m.ApitestPageModule)
+  },
+  {
+    path: 'photo',
+    component: PhotoComponent
+  },
+  {
+    path: 'agregar-vehiculo',
+    loadChildren: () => import('./page/agregar-vehiculo/agregar-vehiculo.module').then( m => m.AgregarVehiculoPageModule)
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
+  },
+  {
+    path: 'lista-vehiculos',
+    loadChildren: () => import('./page/lista-vehiculos/lista-vehiculos.module').then( m => m.ListaVehiculosPageModule)
+  },
+  {
+    path: 'testapi',
+    loadChildren: () => import('./page/testapi/testapi.module').then( m => m.TestapiPageModule)
+  },
+  
 ];
 
 @NgModule({

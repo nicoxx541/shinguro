@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <div>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/principal"></ion-back-button>
+      </ion-buttons>
+      <img src="assets/img/logo.png" width="50%" height="50%" />
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Patente</ion-label>
+        <ion-input [(ngModel)]="patente"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Marca</ion-label>
+        <ion-input [(ngModel)]="marca"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Modelo</ion-label>
+        <ion-input [(ngModel)]="modelo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Año</ion-label>
+        <ion-input [(ngModel)]="anio"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Color</ion-label>
+        <ion-input [(ngModel)]="color"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Tipo Combustible</ion-label>
+        <ion-input [(ngModel)]="tipo_combustible"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <input type="file" (change)="onFileChange($event)" />
+      </ion-item>
+    </ion-list>
+
+    <ion-button (click)="registrarVehiculo()" expand="block">Registrar Vehiculo</ion-button>
+  </h1>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Desarrollado por Nicolas Hernandez</ion-title>
+  </ion-toolbar>
+</ion-footer>
