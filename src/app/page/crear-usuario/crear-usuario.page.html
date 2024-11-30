@@ -1,46 +1,51 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
     <ion-title>Crear Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" style="--background: #f80000b0;">
-  <ion-buttons slot="start">
-    <ion-back-button defaultHref="/"></ion-back-button>
-  </ion-buttons>
-  <img src="assets/img/logo.png" alt="" class="center-image">
+<ion-content class="ion-padding" style="--background: #FFE0B2;">
+  <!-- Logo de la Aplicación -->
+  <ion-img src="assets/img/logo.png" alt="" class="center-image"></ion-img>
 
-  <div>
-    <ion-item>
-      <ion-label position="floating">Nombre</ion-label>
-      <ion-input id="nombre" [(ngModel)]="nombre" name="nombre"></ion-input>
-    </ion-item>
+  <!-- Formulario de Creación de Usuario -->
+  <ion-card class="register-card">
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input id="nombre" [(ngModel)]="nombre" name="nombre" type="text"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Correo_electronico</ion-label>
-      <ion-input id="correo_electronico" [(ngModel)]="correo_electronico" name="correo_electronico" type="correo_electronico"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input id="correo_electronico" [(ngModel)]="correo_electronico" name="correo_electronico" type="email"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input id="password" [(ngModel)]="password" name="password" type="password"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input id="password" [(ngModel)]="password" name="password" type="password"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Teléfono</ion-label>
-      <ion-input id="telefono" [(ngModel)]="telefono" name="telefono" type="tel"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label position="floating">Teléfono</ion-label>
+        <ion-input id="telefono" [(ngModel)]="telefono" name="telefono" type="tel"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <input id="archivoImagen" type="file" (change)="onFileChange($event)">
-    </ion-item>
+      <ion-item>
+        <ion-label>Imagen de Perfil</ion-label>
+        <input id="archivoImagen" type="file" (change)="onFileChange($event)">
+      </ion-item>
 
-    <ion-button expand="full" (click)="registrar()">Registrar</ion-button>
-  </div>
+      <ion-button expand="block" color="primary" (click)="registrar()">Registrar</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar>
+  <ion-toolbar color="light">
     <ion-title>Nicolas Hernandez</ion-title>
   </ion-toolbar>
 </ion-footer>

@@ -1,22 +1,30 @@
 <ion-header>
-  <ion-buttons slot="start">
-    <ion-back-button defaultHref = "/"></ion-back-button>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-  <ion-toolbar>
-    
-    <ion-title></ion-title>
+    <ion-title>Recuperar Contraseña</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" style="--background: #f80000b0;">
-  <img src="assets/img/logo.png" alt="" class="center-image">
-  <div>
-    <h1> 
-      <ion-item>
-        <ion-input [(ngModel)]="email" label="Email" type="email" placeholder="" ></ion-input>
-      </ion-item>
-      <ion-button (click)="recuperar()">recuperar</ion-button>
-    </h1>
-  </div>
+<ion-content class="ion-padding" style="--background: #FFE0B2;">
+  <!-- Logo de la Aplicación -->
+  <ion-img src="assets/img/logo.png" alt="" class="center-image"></ion-img>
 
-  
+  <!-- Formulario de Recuperación -->
+  <ion-card class="recover-card">
+    <ion-card-content>
+      <ion-item>
+        <ion-input
+          [(ngModel)]="email"
+          label="Email"
+          type="email"
+          placeholder="Ingresa tu email"
+          fill="solid"
+        ></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" color="primary" (click)="recuperar()">Recuperar</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

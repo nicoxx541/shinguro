@@ -48,10 +48,7 @@ const routes: Routes = [
     path: 'agregar-vehiculo',
     loadChildren: () => import('./page/agregar-vehiculo/agregar-vehiculo.module').then( m => m.AgregarVehiculoPageModule)
   },
-  {
-    path: '**',
-    component: PageNotFoundComponent
-  },
+
   {
     path: 'lista-vehiculos',
     loadChildren: () => import('./page/lista-vehiculos/lista-vehiculos.module').then( m => m.ListaVehiculosPageModule)
@@ -59,6 +56,10 @@ const routes: Routes = [
   {
     path: 'testapi',
     loadChildren: () => import('./page/testapi/testapi.module').then( m => m.TestapiPageModule)
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
   },
   
 ];
