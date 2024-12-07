@@ -1,21 +1,40 @@
 <ion-header>
-  <ion-toolbar>
-    <div>
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref="/principal"></ion-back-button>
-      </ion-buttons>
-      <img src="assets/img/logo.png" width="50%" height="50%" />
-    </div>
+  <ion-toolbar color="primary">
+    <!-- Botón de Volver -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/principal"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Tomar Foto</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-button (click)="takePicture()">Tomar foto</ion-button>
-  <img [src]="imageUrl" *ngIf="imageUrl" alt="Foto capturada" />
+<ion-content class="ion-padding">
+  <!-- Tarjeta para capturar foto -->
+  <ion-card class="photo-card">
+    <ion-card-header>
+      <ion-card-title>Captura una Imagen</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button expand="block" color="primary" (click)="takePicture()">
+        Capturar Imagen
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Mostrar imagen capturada -->
+  <div class="image-container" *ngIf="imageUrl">
+    <ion-card>
+      <ion-img
+        [src]="imageUrl"
+        alt="Foto capturada"
+        class="captured-image"
+      ></ion-img>
+    </ion-card>
+  </div>
 </ion-content>
 
 <ion-footer>
-    <ion-toolbar>
-      <ion-title>Desarrollado Nicolas Hernandez</ion-title>
-    </ion-toolbar>
-  </ion-footer>
+  <ion-toolbar>
+    <ion-title>Desarrollado por Nicolas Hernandez</ion-title>
+  </ion-toolbar>
+</ion-footer>

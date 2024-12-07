@@ -1,0 +1,48 @@
+/* Estilo del Encabezado */
+ion-toolbar {
+    --background: #3b82f6; /* Fondo azul */
+    --color: white; /* Texto blanco */
+  }
+  
+  /* Tarjeta del Formulario */
+  .form-card {
+    --background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .form-card ion-card-header {
+    background-color: #f4f5f7;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .form-card ion-card-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Campos del Formulario */
+  ion-item {
+    --border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  ion-label {
+    font-weight: bold;
+  }
+  
+  ion-input {
+    --padding-start: 10px;
+  }
+  
+  /* Botón de Registro */
+  ion-button {
+    margin-top: 20px;
+    --border-radius: 8px;
+    --background: #3b82f6; /* Fondo azul */
+    --color: #ffffff;
+  }
+  

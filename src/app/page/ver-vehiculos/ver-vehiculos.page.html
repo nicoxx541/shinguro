@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <!-- Botón de Volver (arriba) -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mis Vehículos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Spinner de carga -->
+  <div class="spinner-container" *ngIf="!vehiculos.length">
+    <ion-spinner></ion-spinner>
+    <p>Cargando vehículos...</p>
+  </div>
+
+  <!-- Lista de Vehículos -->
+  <ion-card *ngFor="let vehiculo of vehiculos" class="vehiculo-card">
+    <ion-card-header>
+      <ion-card-title>Patente: {{ vehiculo.patente }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Marca:</strong> {{ vehiculo.marca }}</p>
+      <p><strong>Modelo:</strong> {{ vehiculo.modelo }}</p>
+      <p><strong>Año:</strong> {{ vehiculo.anio }}</p>
+      <p><strong>Color:</strong> {{ vehiculo.color }}</p>
+      <p><strong>Combustible:</strong> {{ vehiculo.tipo_combustible }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Mensaje si no hay vehículos -->
+  <div class="no-vehiculos" *ngIf="vehiculos.length === 0">
+    <ion-icon name="car-outline" class="no-vehiculos-icon"></ion-icon>
+    <p>No tienes vehículos registrados.</p>
+  </div>
+</ion-content>

@@ -108,21 +108,83 @@ export class ApiService {
     }
   }
 
-  async obtenerVehiculo(){
+  async obtenerViaje(data: dataGetViaje) {
     try {
       const params = {
-        p_id: 25,
-        token: 'eyJhbGciOiJSUzI1NiIsImtpZCI6ImI4Y2FjOTViNGE1YWNkZTBiOTY1NzJkZWU4YzhjOTVlZWU0OGNjY2QiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc2hpbmd1cm81NDEiLCJhdWQiOiJzaGluZ3VybzU0MSIsImF1dGhfdGltZSI6MTczMTM2OTE4MCwidXNlcl9pZCI6ImNwRHp1YVdDQWdmZkZEZDZyRXNHY3NXdnRqQjMiLCJzdWIiOiJjcER6dWFXQ0FnZmZGRGQ2ckVzR2NzV3Z0akIzIiwiaWF0IjoxNzMxMzY5MTgwLCJleHAiOjE3MzEzNzI3ODAsImVtYWlsIjoibmljb0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsibmljb0BnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.e7nPg0G-jT5gBxR6HzmuR0s_GZPtqxRpK3U8Pyp455o9VSwaOYKHN_mK85sK_PyJeq8cOQ-er2iKGJbIFdFs7_nQUcDdqoE_diQSCK_JXHtMm6GvyIBDJUxQpLsMRHKGEn4_vfBIzMAf_vDtYX5NXZ-M35twFmaY9MlUQnekFewKVhIHzHBYfS6SQRTo518akoXuX_4VQ4nV4KJLziXZ8PGkBTxDS9bN5VuonuXHkYLHVrUn09-AB2emWp_eKeaWKiuj6iSOmO2dQmdcTriH4Ar6INqVD6GKX_O-vbIF-FlOaU3EiFigqQHmOYrAp4JjLKkcTDY6_6cPR0WGOl4DYw.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZHVvY3JpcXVlbG1lIiwiYXVkIjoiZHVvY3JpcXVlbG1lIiwiYXV0aF90aW1lIjoxNzI5OTY1NDU0LCJ1c2VyX2lkIjoic0RWZ3JrdFVIa2dSUGJ4SHNFemZyMFBnN25NMiIsInN1YiI6InNEVmdya3RVSGtnUlBieEhzRXpmcjBQZzduTTIiLCJpYXQiOjE3Mjk5NjU0NTQsImV4cCI6MTcyOTk2OTA1NCwiZW1haWwiOiJicEB2ZW50YW5hLmNsIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbImJwQHZlbnRhbmEuY2wiXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.w_N76CliN4SJtlt_ZCprTU8_ioDvKO4WA3Cpp6ksU8_MQ_UfwUpONw267TO7zY_sUVXZwjHsnISsActSykUipTekwzmh1-bPjCW6YqVGgQ6bDzjGFiiykC4BvHLyU0sHuQRLZcsns3UKzXQmQMSxU_bFjNY_LrPnQ1dDx6Lc1DhsahR-qEnOYZCSQTbNS7zP8tO4VJyiAPoXjMivUO98ch-G2l1bgG6BMoBQDsDKQ16WjL6V-D50RKtiOv2z-IeT1TP0FYOcqlMTBUVccZeb6Sd1DiDj4gJMr_Y5DL5rAMSbjqhqI2C4phKayRBYnAEKNzV1Nfe15sbLSyRVtWpPbA'
-      }
-      const response = await lastValueFrom(this.http.get<any>(environment.apiUrl + 'vehiculo/obtener',{params}));
-      return response;
+        p_id_usuario: data.p_id_usuario, // ID del usuario (opcional o requerido según la lógica)
+        token: data.token, // Token para la autenticación
+      };
+  
+      // Realiza la solicitud GET con los parámetros
+      const response = await lastValueFrom(
+        this.http.get<any>(environment.apiUrl + 'viaje/obtener', { params })
+      );
+  
+      return response; // Devuelve los datos al llamador
     } catch (error) {
-      throw error;
+      throw error; // Lanza el error para manejarlo en el componente
     }
-
   }
 
+  async actualizarViaje(data: bodyActualizarViaje) {
+    try {
+      const response = await lastValueFrom(
+        this.http.post<any>(`${environment.apiUrl}/viaje/actualiza_estado_viaje`, data)
+      );
+      return response;
+    } catch (error) {
+      console.error('Error al actualizar viaje:', error);
+      throw new Error('No se pudo actualizar el estado del viaje. Intenta nuevamente.');
+    }
+  }
+
+  async obtenerVehiculo(data: { p_id?: number; token: string }) {
+    try {
+      const params: any = { token: data.token };
+  
+      if (data.p_id) {
+        params.p_id = data.p_id;
+      }
+  
+      console.log('Parámetros enviados a la API:', params);
+  
+      const apiUrl = `${environment.apiUrl.replace(/\/+$/, '')}/vehiculo/obtener`;
+  
+      const response = await lastValueFrom(
+        this.http.get<any>(apiUrl, { params })
+      );
+  
+      return response;
+    } catch (error) {
+      console.error('Error en obtenerVehiculo:', error);
+      throw error;
+    }
+  }
+  
+  async agregarViaje(data: {
+    p_id_usuario: number;
+    p_ubicacion_origen: string;
+    p_ubicacion_destino: string;
+    p_costo: number;
+    p_id_vehiculo: number;
+    token: string;
+  }) {
+    try {
+      const apiUrl = `${environment.apiUrl}/viaje/agregar`;
+  
+      const response = await lastValueFrom(
+        this.http.post<any>(apiUrl, data)
+      );
+  
+      return response;
+    } catch (error) {
+      console.error('Error al realizar la solicitud al backend:', error);
+      throw error;
+    }
+  }
+  
 }
+
 
 interface bodyUser {
   p_nombre: string;
@@ -146,3 +208,30 @@ interface bodyVehiculo {
   p_tipo_combustible: string;
   token: string;
 }
+
+interface dataGetVehiculo {
+  p_id: number;
+  token: string;
+}
+
+interface bodyViaje {
+  p_id_usuario: number;
+  p_ubicacion_origen:string;
+  p_ubicacion_destino: string;
+  p_costo: number;
+  p_id_vehiculo: number;
+  token: string
+}
+
+interface dataGetViaje {
+  p_id_usuario: number;
+  token: string;
+}
+
+interface bodyActualizarViaje {
+  p_id: number; // ID único del viaje
+  p_id_estado: number; // Estado del viaje (ejemplo: 1 = pendiente, 2 = completado)
+  token: string; // Token del usuario
+}
+
+

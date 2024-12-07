@@ -1,0 +1,51 @@
+/* Encabezado */
+ion-toolbar {
+    --background: #3b82f6; /* Fondo azul */
+    --color: white; /* Texto blanco */
+  }
+  
+  /* Tarjeta para capturar foto */
+  .photo-card {
+    --background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .photo-card ion-card-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Contenedor para imagen capturada */
+  .image-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .captured-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+  }
+  
+  /* Botón para capturar foto */
+  ion-button {
+    --border-radius: 8px;
+    margin-top: 10px;
+  }
+  
+  /* Pie de página */
+  ion-footer {
+    --background: #f4f5f7;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  

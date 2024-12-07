@@ -1,0 +1,36 @@
+/* Contenedor principal */
+.error-container {
+    text-align: center;
+    margin-top: 50px;
+    color: #444444;
+  }
+  
+  /* Título de error */
+  .error-container h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Mensaje de error */
+  .error-message {
+    font-size: 1.2rem;
+    color: #ff4d4d;
+    margin-bottom: 20px;
+  }
+  
+  /* Ícono */
+  .error-icon {
+    font-size: 4rem;
+    color: #ff4d4d;
+    margin: 20px 0;
+  }
+  
+  /* Botón de volver */
+  ion-button {
+    margin-top: 20px;
+    --background: #3b82f6; /* Azul */
+    --color: white; /* Texto blanco */
+    border-radius: 10px;
+  }
+  

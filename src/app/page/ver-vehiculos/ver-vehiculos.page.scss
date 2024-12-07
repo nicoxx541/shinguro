@@ -1,0 +1,63 @@
+/* Encabezado */
+ion-toolbar {
+    --background: #3b82f6;
+    --color: #ffffff;
+  }
+  
+  .btn-volver {
+    margin-top: 20px;
+    width: 100%;
+    font-size: 1.2rem;
+    --background: #6c757d; /* Gris oscuro */
+    --color: white;
+    --border-radius: 8px;
+  }
+  
+  .spinner-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .spinner-container p {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 10px;
+  }
+  
+  .vehiculo-card {
+    margin-bottom: 15px;
+    --background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .vehiculo-card ion-card-header {
+    background-color: #f4f5f7;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .vehiculo-card ion-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333333;
+  }
+  
+  .vehiculo-card ion-card-content p {
+    font-size: 1rem;
+    margin: 5px 0;
+    color: #555555;
+  }
+  
+  .no-vehiculos {
+    text-align: center;
+    margin-top: 50px;
+    color: #666666;
+  }
+  
+  .no-vehiculos-icon {
+    font-size: 3rem;
+    color: #999999;
+    margin-bottom: 10px;
+  }
+  

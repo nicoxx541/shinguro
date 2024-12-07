@@ -1,0 +1,10 @@
+<ion-list *ngIf="viajes.length > 0">
+  <ion-item *ngFor="let viaje of viajes">
+    <ion-label>
+      <h2>Origen: {{ viaje.ubicacion_origen }}</h2>
+      <p>Destino: {{ viaje.ubicacion_destino }}</p>
+      <p>Costo: {{ viaje.costo }}</p>
+      <p>Estado: {{ viaje.estado }}</p>
+    </ion-label>
+  </ion-item>
+</ion-list>

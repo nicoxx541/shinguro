@@ -33,10 +33,6 @@ const routes: Routes = [
     loadChildren: () => import('./page/recuperarpass/recuperarpass.module').then( m => m.RecuperarpassPageModule)
   },
   {
-    path: 'perfil',
-    loadChildren: () => import('./page/perfil/perfil.module').then( m => m.PerfilPageModule)
-  },
-  {
     path: 'apitest',
     loadChildren: () => import('./page/apitest/apitest.module').then( m => m.ApitestPageModule)
   },
@@ -48,19 +44,32 @@ const routes: Routes = [
     path: 'agregar-vehiculo',
     loadChildren: () => import('./page/agregar-vehiculo/agregar-vehiculo.module').then( m => m.AgregarVehiculoPageModule)
   },
-
-  {
-    path: 'lista-vehiculos',
-    loadChildren: () => import('./page/lista-vehiculos/lista-vehiculos.module').then( m => m.ListaVehiculosPageModule)
-  },
+  
   {
     path: 'testapi',
     loadChildren: () => import('./page/testapi/testapi.module').then( m => m.TestapiPageModule)
   },
+  
+  {
+    path: 'agregar-viaje',
+    loadChildren: () => import('./page/agregar-viaje/agregar-viaje.module').then( m => m.AgregarViajePageModule)
+  },
+  {
+    path: 'ver-viajes',
+    loadChildren: () => import('./page/ver-viajes/ver-viajes.module').then( m => m.VerViajesPageModule)
+  },
+  {
+    path: 'actualizar-viaje',
+    loadChildren: () => import('./page/actualizar-viaje/actualizar-viaje.module').then( m => m.ActualizarViajePageModule)
+  },
+  {
+    path: 'ver-vehiculos',
+    loadChildren: () => import('./page/ver-vehiculos/ver-vehiculos.module').then( m => m.VerVehiculosPageModule)
+  },
   {
     path: '**',
     component: PageNotFoundComponent
-  },
+  }
   
 ];
 
