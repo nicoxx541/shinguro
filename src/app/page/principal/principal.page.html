@@ -33,7 +33,7 @@
           <ion-label>Registrar Vehículo</ion-label>
         </ion-item>
 
-        <ion-item button [routerLink]="['/ver-vehiculos']">
+        <ion-item button (click)="ObtenerVehiculos()">>
           <ion-icon name="car-outline" slot="start"></ion-icon>
           <ion-label>Ver Vehículos</ion-label>
         </ion-item>

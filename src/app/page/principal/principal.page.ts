@@ -87,7 +87,7 @@ export class PrincipalPage implements OnInit, AfterViewInit {
         console.log('Vehículos cargados:', this.vehiculo);
 
         const navigationExtras: NavigationExtras = { queryParams: { email: this.email } };
-        this.router.navigate(['/lista-vehiculos'], navigationExtras);
+        this.router.navigate(['/ver-vehiculos'], navigationExtras);
       } else {
         console.error('No hay vehículos registrados.');
         this.popAlertNoVehiculos();
