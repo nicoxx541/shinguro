@@ -76,5 +76,5 @@ export class AgregarVehiculoPage implements OnInit {
     );
     this.usuario = req.data;
   }
-
+  
 }

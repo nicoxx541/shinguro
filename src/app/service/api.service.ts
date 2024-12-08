@@ -161,28 +161,28 @@ export class ApiService {
     }
   }
   
-  async agregarViaje(data: {
-    p_id_usuario: number;
-    p_ubicacion_origen: string;
-    p_ubicacion_destino: string;
-    p_costo: number;
-    p_id_vehiculo: number;
-    token: string;
-  }) {
+  async agregarViaje(datosViaje:bodyViaje){
+
     try {
-      const apiUrl = `${environment.apiUrl}/viaje/agregar`;
-  
-      const response = await lastValueFrom(
-        this.http.post<any>(apiUrl, data)
-      );
-  
+      
+      const body = {
+        p_id_usuario: datosViaje.p_id_usuario,
+        p_ubicacion_origen: datosViaje.p_ubicacion_origen,
+        p_ubicacion_destino: datosViaje.p_ubicacion_destino,
+        p_costo: datosViaje.p_costo,
+        p_id_vehiculo: datosViaje.p_id_vehiculo,
+        token: datosViaje.token
+      };
+
+      const response = await lastValueFrom(this.http.post<any>(environment.apiUrl + 'viaje/agregar', body));
       return response;
+
     } catch (error) {
-      console.error('Error al realizar la solicitud al backend:', error);
-      throw error;
+      console.log(error)
+      throw error
     }
   }
-  
+    
 }
 
 
@@ -233,5 +233,6 @@ interface bodyActualizarViaje {
   p_id_estado: number; // Estado del viaje (ejemplo: 1 = pendiente, 2 = completado)
   token: string; // Token del usuario
 }
+
 
 

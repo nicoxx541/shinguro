@@ -1,6 +1,3 @@
-// Karma configuration file, see link for more information
-// https://karma-runner.github.io/1.0/config/configuration-file.html
-
 module.exports = function (config) {
   config.set({
     basePath: '',
@@ -39,6 +36,10 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['Chrome'],
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+    files: [
+      'https://maps.googleapis.com/maps/api/js?key=TU_API_KEY', // Agregar el script de Google Maps
+      { pattern: './src/**/*.spec.ts', watched: false } // Incluye los archivos de prueba
+    ]
   });
 };

@@ -14,13 +14,12 @@
       <ion-card-title>Detalles del Viaje</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <form (ngSubmit)="registrarViaje()">
         <ion-list>
           <!-- Campo para la ubicación de origen -->
           <ion-item>
             <ion-label position="stacked">Ubicación Origen</ion-label>
             <ion-input
-              [(ngModel)]="ubicacionOrigen"
+              [(ngModel)]="ubicacion_origen"
               name="ubicacionOrigen"
               required
               placeholder="Ej. Casa"
@@ -31,7 +30,7 @@
           <ion-item>
             <ion-label position="stacked">Ubicación Destino</ion-label>
             <ion-input
-              [(ngModel)]="ubicacionDestino"
+              [(ngModel)]="ubicacion_destino"
               name="ubicacionDestino"
               required
               placeholder="Ej. DUOC"
@@ -52,10 +51,8 @@
         </ion-list>
 
         <!-- Botón para registrar el viaje -->
-        <ion-button expand="block" type="submit" color="primary">
-          Registrar Viaje
+        <ion-button expand="block" color="primary" (click)="agregarViaje()">Registrar Viaje
         </ion-button>
-      </form>
     </ion-card-content>
   </ion-card>
 </ion-content>

@@ -98,6 +98,29 @@ export class PrincipalPage implements OnInit, AfterViewInit {
     }
   }
 
+  // Agregar viaje
+  async AgregarViaje() {
+  try {
+    const dataStorage = await this.storage.obtenerStorage();
+    const vehiculos = await this.apiservice.obtenerVehiculo({
+      p_id: this.usuario[0].id_usuario,
+      token: dataStorage[0].token,
+    });
+
+    if (vehiculos.data.length > 0) {
+      const navigationExtras: NavigationExtras = {
+        queryParams: { email: this.email, id_vehiculo: vehiculos.data[0].id_vehiculo },
+      };
+      this.router.navigate(['/agregar-viaje'], navigationExtras);
+    } else {
+      this.popAlertNoVehiculos();
+    }
+  } catch (error) {
+    console.error('Error al obtener vehículos:', error);
+  }
+}
+
+
   // Cargar viajes
   async cargarViajes() {
     try {
