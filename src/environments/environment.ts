@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   firebaseConfig : {
+    apiKey: "AIzaSyDpRYpJnII22CXw7sFw0Z1O_rOI7JvqaEs",
     authDomain: "shinguro541.firebaseapp.com",
     projectId: "shinguro541",
     storageBucket: "shinguro541.appspot.com",

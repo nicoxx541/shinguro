@@ -9,14 +9,14 @@ describe('PhotoComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        IonicModule.forRoot(),       // Inicializa Ionic
+        IonicModule.forRoot(),    
       ],
       declarations: [
-        PhotoComponent,              // Declara el componente
+        PhotoComponent,           
       ],
       providers: [
         {
-          provide: 'CameraService', // Simula el servicio relacionado con la cámara o funcionalidad no implementada
+          provide: 'CameraService',
           useValue: {
             takePhoto: jasmine.createSpy('takePhoto').and.returnValue(Promise.resolve({ path: 'mock-photo-path.jpg' })),
           },
@@ -30,6 +30,6 @@ describe('PhotoComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy(); // Verifica que el componente se haya creado correctamente
+    expect(component).toBeTruthy();
   });
 });
