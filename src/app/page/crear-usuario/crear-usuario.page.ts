@@ -11,12 +11,7 @@ import { FirebaseService } from 'src/app/service/firebase.service';
 })
 export class CrearUsuarioPage implements OnInit {
 
-  constructor(
-    private firebase: FirebaseService,
-    private router: Router,
-    private crearuser: ApiService,
-    private alertcontroller: AlertController
-  ) {}
+  constructor(private firebase: FirebaseService, private router: Router, private crearuser: ApiService, private alertcontroller: AlertController) {}
 
   correo_electronico: string = "";
   password: string = "";
@@ -28,12 +23,10 @@ export class CrearUsuarioPage implements OnInit {
   ngOnInit() {}
 
   async registrar() {
-    // Verificación de campos requeridos
     if (!this.nombre || !this.correo_electronico || !this.password || !this.telefono) {
       this.popAlert("Por favor, completa todos los campos.");
       return;
     }
-
     try {
       let usuario = await this.firebase.registrar(this.correo_electronico, this.password);
       const token = await usuario.user?.getIdToken();

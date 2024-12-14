@@ -1,57 +1,42 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <!-- Botón de Volver -->
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Actualizar Viaje</ion-title>
+    <ion-title>Actualizar Estado del Viaje</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card class="form-card">
+  <ion-card>
     <ion-card-header>
-      <ion-card-title>Información del Usuario</ion-card-title>
+      <ion-card-title>Datos del Viaje</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <p><strong>Email:</strong> {{ email }}</p>
-      <p><strong>Nombre:</strong> {{ usuario?.nombre }}</p>
-    </ion-card-content>
-  </ion-card>
+      <!-- Mostrar la información del viaje -->
+      <p><strong>Origen:</strong> {{ viajeSeleccionado?.ubicacion_origen }}</p>
+      <p><strong>Destino:</strong> {{ viajeSeleccionado?.ubicacion_destino }}</p>
+      <p><strong>Costo:</strong> {{ viajeSeleccionado?.costo }}</p>
 
-  <ion-card class="form-card">
-    <ion-card-header>
-      <ion-card-title>Actualizar Estado del Viaje</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <form (ngSubmit)="actualizarViaje()">
-        <!-- Campo para ID del Viaje -->
-        <ion-item>
-          <ion-label position="stacked">ID del Viaje</ion-label>
-          <ion-input
-            type="number"
-            [(ngModel)]="p_id_viaje"
-            name="id_viaje"
-            required
-            placeholder="Ingrese el ID del viaje"
-          ></ion-input>
-        </ion-item>
+      <!-- Selector de Vehículos -->
+      <ion-item>
+        <ion-label>Seleccionar Vehículo</ion-label>
+        <ion-select [(ngModel)]="vehiculoSeleccionado" interface="popover" (ionChange)="handleVehiculoChange($event)">
+          <ion-select-option *ngFor="let vehiculo of vehiculos" [value]="vehiculo.id_vehiculo">
+            {{ vehiculo.marca }} - {{ vehiculo.modelo }} ({{ vehiculo.patente }})
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
 
-        <!-- Campo para el Estado del Viaje -->
-        <ion-item>
-          <ion-label position="stacked">Estado</ion-label>
-          <ion-select [(ngModel)]="p_id_estado" name="estado" required>
-            <ion-select-option value="1">Pendiente</ion-select-option>
-            <ion-select-option value="2">Completado</ion-select-option>
-            <ion-select-option value="3">Cancelado</ion-select-option>
-          </ion-select>
-        </ion-item>
+      <!-- Selector del Estado -->
+      <ion-item>
+        <ion-label>Estado del Viaje</ion-label>
+        <ion-select [(ngModel)]="p_id_estado" interface="popover">
+          <ion-select-option value="1">En Progreso</ion-select-option>
+          <ion-select-option value="2">Completado</ion-select-option>
+          <ion-select-option value="3">Cancelado</ion-select-option>
+        </ion-select>
+      </ion-item>
 
-        <!-- Botón para Actualizar -->
-        <ion-button expand="block" type="submit" color="primary">
-          Actualizar Viaje
-        </ion-button>
-      </form>
+      <!-- Botón para Actualizar -->
+      <ion-button expand="full" color="primary" (click)="actualizarViaje()">Actualizar Viaje</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

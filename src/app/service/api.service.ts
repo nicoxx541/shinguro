@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-
-import {
-  HttpClient,
-  HttpHeaders,
-  HttpErrorResponse,
-} from '@angular/common/http';
+import {HttpClient, HttpHeaders,} from '@angular/common/http';
 import { retry, catchError } from 'rxjs/operators';
 import { lastValueFrom, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -20,7 +15,6 @@ export class ApiService {
     }),
   };
 
-  //url de ejemplo
   apiURL = 'https://jsonplaceholder.typicode.com';
 
   constructor(private http: HttpClient) {}
@@ -111,30 +105,15 @@ export class ApiService {
   async obtenerViaje(data: dataGetViaje) {
     try {
       const params = {
-        p_id_usuario: data.p_id_usuario, // ID del usuario (opcional o requerido según la lógica)
-        token: data.token, // Token para la autenticación
+        p_id_usuario: data.p_id_usuario,
+        token: data.token,
       };
-  
-      // Realiza la solicitud GET con los parámetros
       const response = await lastValueFrom(
         this.http.get<any>(environment.apiUrl + 'viaje/obtener', { params })
       );
-  
-      return response; // Devuelve los datos al llamador
-    } catch (error) {
-      throw error; // Lanza el error para manejarlo en el componente
-    }
-  }
-
-  async actualizarViaje(data: bodyActualizarViaje) {
-    try {
-      const response = await lastValueFrom(
-        this.http.post<any>(`${environment.apiUrl}/viaje/actualiza_estado_viaje`, data)
-      );
       return response;
     } catch (error) {
-      console.error('Error al actualizar viaje:', error);
-      throw new Error('No se pudo actualizar el estado del viaje. Intenta nuevamente.');
+      throw error; 
     }
   }
 
@@ -160,9 +139,8 @@ export class ApiService {
       throw error;
     }
   }
-  
-  async agregarViaje(datosViaje:bodyViaje){
 
+  async agregarViaje(datosViaje:bodyViaje){
     try {
       
       const body = {
@@ -173,18 +151,39 @@ export class ApiService {
         p_id_vehiculo: datosViaje.p_id_vehiculo,
         token: datosViaje.token
       };
-
       const response = await lastValueFrom(this.http.post<any>(environment.apiUrl + 'viaje/agregar', body));
       return response;
-
     } catch (error) {
       console.log(error)
       throw error
     }
+  }  
+
+
+ async actualizarEstadoViaje(data: { p_id: number; p_id_estado: number; token: string }) {
+  try {
+    const body = {
+      p_id: data.p_id,
+      p_id_estado: data.p_id_estado,
+      token: data.token,
+    };
+
+    console.log('Datos enviados al API:', body);
+
+    const response = await lastValueFrom(
+      this.http.post<any>(environment.apiUrl + 'viaje/actualiza_estado_viaje', body)
+    );
+
+    return response;
+  } catch (error) {
+    console.error('Error en actualizarEstadoViaje:', error);
+    throw error;
   }
-    
 }
 
+  
+  
+}
 
 interface bodyUser {
   p_nombre: string;
@@ -228,11 +227,7 @@ interface dataGetViaje {
   token: string;
 }
 
-interface bodyActualizarViaje {
-  p_id: number; // ID único del viaje
-  p_id_estado: number; // Estado del viaje (ejemplo: 1 = pendiente, 2 = completado)
-  token: string; // Token del usuario
-}
+
 
 
 

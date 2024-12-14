@@ -17,7 +17,6 @@
       <ion-grid>
         <ion-row>
           <ion-col>
-            <!-- Formulario para agregar un nuevo viaje -->
             <form>
               <ion-item>
                 <ion-label position="floating">Ubicacion de origen</ion-label>
@@ -34,29 +33,14 @@
                 <ion-input [(ngModel)]="costo" name="origen" required></ion-input>
               </ion-item>
     
-              <!-- <ion-item>
-                <ion-label position="floating">Destino</ion-label>
-                <ion-input [(ngModel)]="viaje.destino" name="destino" required></ion-input>
-              </ion-item>
-    
-              <ion-item>
-                <ion-label position="floating">Fecha y hora</ion-label>
-                <ion-datetime [(ngModel)]="viaje.fechaHora" name="fechaHora" required></ion-datetime>
-              </ion-item> -->
-              
-              <ion-list>
+            <ion-list>
                 <ion-item>
                   <ion-select
-                    aria-label="Vehiculos"
-                    [compareWith]="compareWith"
-                    placeholder="Selecciona Vehiculo"
-                    (ionChange)="handleChange($event)"
-                  >
+                    aria-label="Vehiculos"[compareWith]="compareWith"placeholder="Selecciona Vehiculo"(ionChange)="handleChange($event)">
                     <ion-select-option *ngFor="let u of usuario" [value]="u">{{u.patente}} - {{u.marca}} - {{u.modelo}}</ion-select-option>
                   </ion-select>
                 </ion-item>
               </ion-list>
-    
               <ion-button (click)="agregarViaje()" expand="full" type="submit" color="medium">Agregar Viaje</ion-button>
             </form>
           </ion-col>

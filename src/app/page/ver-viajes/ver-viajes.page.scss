@@ -1,0 +1,48 @@
+/* Estilo para el encabezado */
+ion-toolbar {
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Tarjetas de viaje */
+.viaje-card {
+  margin: 15px 0;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+/* Título dentro de cada tarjeta */
+ion-card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #3b82f6;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+/* Contenido dentro de cada tarjeta */
+ion-card-content p {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+/* Grid de detalles */
+ion-row {
+  display: flex;
+  align-items: center;
+}
+
+/* Mensaje de lista vacía */
+.empty-list-message {
+  text-align: center;
+  color: gray;
+  margin-top: 20px;
+}
+
+.empty-list-message ion-icon {
+  color: #fbbf24;
+  margin-bottom: 10px;
+}

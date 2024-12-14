@@ -33,10 +33,6 @@ const routes: Routes = [
     loadChildren: () => import('./page/recuperarpass/recuperarpass.module').then( m => m.RecuperarpassPageModule)
   },
   {
-    path: 'apitest',
-    loadChildren: () => import('./page/apitest/apitest.module').then( m => m.ApitestPageModule)
-  },
-  {
     path: 'photo',
     component: PhotoComponent
   },
@@ -44,12 +40,6 @@ const routes: Routes = [
     path: 'agregar-vehiculo',
     loadChildren: () => import('./page/agregar-vehiculo/agregar-vehiculo.module').then( m => m.AgregarVehiculoPageModule)
   },
-  
-  {
-    path: 'testapi',
-    loadChildren: () => import('./page/testapi/testapi.module').then( m => m.TestapiPageModule)
-  },
-  
   {
     path: 'agregar-viaje',
     loadChildren: () => import('./page/agregar-viaje/agregar-viaje.module').then( m => m.AgregarViajePageModule)

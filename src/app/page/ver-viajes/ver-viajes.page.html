@@ -1,10 +1,47 @@
-<ion-list *ngIf="viajes.length > 0">
-  <ion-item *ngFor="let viaje of viajes">
-    <ion-label>
-      <h2>Origen: {{ viaje.ubicacion_origen }}</h2>
-      <p>Destino: {{ viaje.ubicacion_destino }}</p>
-      <p>Costo: {{ viaje.costo }}</p>
-      <p>Estado: {{ viaje.estado }}</p>
-    </ion-label>
-  </ion-item>
-</ion-list>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      <ion-icon name="car-outline" slot="start"></ion-icon>
+      Lista de Viajes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Lista de Viajes -->
+  <div *ngIf="viajes.length > 0">
+    <ion-card *ngFor="let viaje of viajes" class="viaje-card">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="location-outline" slot="start"></ion-icon>
+          {{ viaje.ubicacion_origen }} → {{ viaje.ubicacion_destino }}
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <p><strong>Costo:</strong> ${{ viaje.costo }}</p>
+            </ion-col>
+            <ion-col>
+              <p><strong>Estado:</strong> {{ viaje.id_estado }}</p>
+            </ion-col>
+            <ion-button
+                expand="block"
+                color="tertiary"
+                [routerLink]="['/actualizar-viaje']"
+                [queryParams]="{ email: email, id_viaje: viaje.id }">
+                Cambiar Estado
+            </ion-button>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Mensaje en caso de no tener viajes -->
+  <div *ngIf="viajes.length === 0" class="empty-list-message">
+    <ion-icon name="alert-circle-outline" size="large"></ion-icon>
+    <p>No tienes viajes registrados aún.</p>
+  </div>
+</ion-content>

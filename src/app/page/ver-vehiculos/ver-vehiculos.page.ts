@@ -19,7 +19,7 @@ export class VerVehiculosPage implements OnInit {
     private activate: ActivatedRoute,
     private storage: StorageService,
     private apiservice: ApiService,
-    private navCtrl: NavController // Para manejar la navegación del botón Volver
+    private navCtrl: NavController 
   ) {
     this.activate.queryParams.subscribe((params) => {
       this.email = params['email'];
@@ -34,17 +34,15 @@ export class VerVehiculosPage implements OnInit {
 
   async cargarUsuario() {
     try {
-      const dataStorage = await this.storage.obtenerStorage(); // Obtenemos el token desde el storage
+      const dataStorage = await this.storage.obtenerStorage(); 
       const req = await this.apiservice.obtenerUsuario({
-        p_correo: this.email, // Correo del usuario
-        token: dataStorage[0].token, // Token de autenticación
+        p_correo: this.email, 
+        token: dataStorage[0].token, 
       });
 
       if (req && req.data) {
         this.usuario = req.data;
         console.log('Usuario cargado:', this.usuario);
-
-        // Ahora cargamos los viajes del usuario
       } else {
         console.error('No se encontraron datos del usuario.');
       }
@@ -52,26 +50,24 @@ export class VerVehiculosPage implements OnInit {
       console.error('Error al cargar usuario:', error);
     }
   }
-  // Método para obtener vehículos
+
   async ObtenerVehiculos() {
     try {
-      // Obtiene el token desde el almacenamiento local
       const dataStorage = await this.storage.obtenerStorage();
       const reqvehiculo = await this.apiservice.obtenerUsuario({
-        p_correo: this.email, // Correo del usuario
-        token: dataStorage[0].token, // Token de autenticación
+        p_correo: this.email, 
+        token: dataStorage[0].token, 
       });
       this.usuario = reqvehiculo.data;
       console.log('id usuario:', this.usuario[0].id_usuario);
 
-      // Llama a la API para obtener vehículos
       const req = await this.apiservice.obtenerVehiculo({
         p_id: this.usuario[0].id_usuario,
         token: dataStorage[0].token,
       });
 
       if (req && req.data.length > 0) {
-        this.vehiculos = req.data; // Guarda los vehículos en la lista
+        this.vehiculos = req.data; 
         console.log('Vehículos cargados:', this.vehiculos);
       } else {
         console.error('No hay vehículos registrados.');
@@ -80,11 +76,4 @@ export class VerVehiculosPage implements OnInit {
       console.error('Error al obtener vehículos:', error);
     }
   }
-
-  // Método para manejar el botón Volver
-  volver() {
-    this.navCtrl.navigateBack('/principal'); // Cambia la ruta según lo necesario
-  }
-
-  
 }

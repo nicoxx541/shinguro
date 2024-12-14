@@ -4,7 +4,6 @@ import { AlertController } from '@ionic/angular';
 import { FirebaseService } from 'src/app/service/firebase.service';
 import { StorageService } from 'src/app/service/storage.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',

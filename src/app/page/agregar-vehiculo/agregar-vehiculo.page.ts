@@ -36,6 +36,17 @@ export class AgregarVehiculoPage implements OnInit {
     this.cargarUsuario();
   }
 
+  async cargarUsuario(){
+    let dataStorage = await this.storage.obtenerStorage();    
+    const req = await this.apiservice.obtenerUsuario(
+      {
+        p_correo: this.email,
+        token:dataStorage[0].token
+      }
+    );
+    this.usuario = req.data;
+  }
+  
   async registrarVehiculo() {
     try {
       let dataStorage = await this.storage.obtenerStorage();
@@ -65,16 +76,4 @@ export class AgregarVehiculoPage implements OnInit {
       this.archivoImagen = event.target.files[0];
     }
   }
-
-  async cargarUsuario(){
-    let dataStorage = await this.storage.obtenerStorage();    
-    const req = await this.apiservice.obtenerUsuario(
-      {
-        p_correo: this.email,
-        token:dataStorage[0].token
-      }
-    );
-    this.usuario = req.data;
-  }
-  
 }

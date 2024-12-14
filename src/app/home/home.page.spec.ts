@@ -1,24 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ApiService } from '../service/api.service';
 
-import { HomePage } from './home.page';
 
-describe('HomePage', () => {
-  let component: HomePage;
-  let fixture: ComponentFixture<HomePage>;
+describe('ApiService', () => {
+  let service: ApiService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [HomePage],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(HomePage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule, // Simula las solicitudes HTTP
+      ],
+      providers: [
+        ApiService, // Servicio que se está probando
+      ],
+    });
+    service = TestBed.inject(ApiService); // Inyecta el servicio
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should be created', () => {
+    expect(service).toBeTruthy();
   });
 });
