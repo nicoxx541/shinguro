@@ -19,44 +19,41 @@
             <p class="user-email">{{ usuario.length > 0 ? usuario[0].correo_electronico : 'correo@ejemplo.com' }}</p>
           </ion-label>
         </ion-item>
-
       </ion-list>
-        <ion-item button (click)="btnRegistrarVehiculo()">
+      <ion-item button (click)="btnRegistrarVehiculo()">
         <ion-icon name="car-sport-outline" slot="start"></ion-icon>
         <ion-label>Registrar Vehículo</ion-label>
-        </ion-item>
+      </ion-item>
 
-        <ion-item button (click)="ObtenerVehiculos()">>
+      <ion-item button (click)="ObtenerVehiculos()">
         <ion-icon name="car-outline" slot="start"></ion-icon>
         <ion-label>Ver Vehículos</ion-label>
-        </ion-item>
+      </ion-item>
 
-        <ion-item button (click)="AgregarViaje()">
+      <ion-item button (click)="AgregarViaje()">
         <ion-icon name="navigate-outline" slot="start"></ion-icon>
         <ion-label>Crear Viaje</ion-label>
-        </ion-item>
+      </ion-item>
 
-        <ion-item button (click)="cargarViajes()">
+      <ion-item button (click)="cargarViajes()">
         <ion-icon name="trail-sign-outline" slot="start"></ion-icon>
         <ion-label>Ver Viajes</ion-label>
-        </ion-item>
+      </ion-item>
 
-        <ion-item button [routerLink]="['/actualizar-viaje']">
+      <ion-item button [routerLink]="['/actualizar-viaje']">
         <ion-icon name="refresh-outline" slot="start"></ion-icon>
         <ion-label>Actualizar Viaje</ion-label>
-        </ion-item>
+      </ion-item>
 
-        <ion-item button [routerLink]="['/photo']">
+      <ion-item button [routerLink]="['/photo']">
         <ion-icon name="camera-outline" slot="start"></ion-icon>
         <ion-label>Tomar Foto</ion-label>
-        </ion-item>
+      </ion-item>
 
-        <ion-item button (click)="logout()">
+      <ion-item button (click)="logout()">
         <ion-icon name="log-out-outline" slot="start"></ion-icon>
         <ion-label>Cerrar Sesión</ion-label>
-        </ion-item>
-        <ion-list>
-      </ion-list>
+      </ion-item>
     </ion-content>
   </ion-menu>
 
@@ -71,19 +68,19 @@
     </ion-header>
 
     <ion-content class="ion-padding">
-      
       <div class="logo-container">
         <ion-img src="assets/img/logo.png" alt="Logo" class="center-image"></ion-img>
       </div>
 
       <ion-searchbar placeholder="¿Dónde quieres ir?" showCancelButton="focus" class="search-bar"></ion-searchbar>
 
+      <!-- Mapa Reemplazado por Imagen -->
       <ion-card class="map-card">
         <ion-card-header>
           <ion-card-title>Tu Ubicación Actual</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <div id="map" class="map-container"></div>
+          <ion-img src="assets/img/maps.jpg" alt="Mapa estático" class="map-image"></ion-img>
         </ion-card-content>
       </ion-card>
 
